@@ -1,7 +1,7 @@
 About r-network
 ===============
 
-Home: http
+Home: http://statnet.org/
 
 Package license: GPL (>= 2)
 
