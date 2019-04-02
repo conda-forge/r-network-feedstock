@@ -1,4 +1,4 @@
-{% set version = '1.13.0.1' %}
+{% set version = "1.15" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,11 +12,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/network_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/network/network_{{ version }}.tar.gz
-  sha256: 60b71983b638c7812ccd986ead438ed7bb2bd8080c01c85d8ea70587275e73ad
+  sha256: 5cbe5c0369e5f8363e33a86f14fd33ce8727166106381627ecd13b7452e14cb3
 
 build:
   merge_build_host: True  # [win]
-  number: 1000
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -34,9 +34,12 @@ requirements:
 
   host:
     - r-base
-
+    - r-tibble
+    - r-magrittr
   run:
     - r-base
+    - r-tibble
+    - r-magrittr
     - {{native}}gcc-libs         # [win]
 
 test:
