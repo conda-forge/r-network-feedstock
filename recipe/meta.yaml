@@ -34,9 +34,12 @@ requirements:
 
   host:
     - r-base
-
+    - r-tibble
+    - r-magrittr
   run:
     - r-base
+    - r-tibble
+    - r-magrittr
     - {{native}}gcc-libs         # [win]
 
 test:
