@@ -53,15 +53,12 @@ about:
   summary: Tools to create and modify network objects.  The network class can represent a range
     of relational data types, and supports arbitrary vertex/edge/graph attributes.
   license_family: GPL3
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
    recipe-maintainers:
     - conda-forge/r
-    - dpryan79
     - MathiasHaudgaard
     - FrodePedersen
     - ArneKr
-    - Johanneskoester
-    - Bgruening
-    - Daler
-    - Jdblischak
