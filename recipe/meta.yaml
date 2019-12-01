@@ -1,4 +1,4 @@
-{% set version = "1.15" %}
+{% set version = "1.16.0" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,11 +12,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/network_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/network/network_{{ version }}.tar.gz
-  sha256: 5cbe5c0369e5f8363e33a86f14fd33ce8727166106381627ecd13b7452e14cb3
+  sha256: a24f51457439c7186ffa1fe53719742c501929ac1a354e458754a83f280fce36
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -53,15 +53,12 @@ about:
   summary: Tools to create and modify network objects.  The network class can represent a range
     of relational data types, and supports arbitrary vertex/edge/graph attributes.
   license_family: GPL3
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
    recipe-maintainers:
     - conda-forge/r
-    - dpryan79
     - MathiasHaudgaard
     - FrodePedersen
     - ArneKr
-    - Johanneskoester
-    - Bgruening
-    - Daler
-    - Jdblischak
