@@ -1,4 +1,4 @@
-{% set version = "1.16.0" %}
+{% set version = "1.16.1" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,11 +12,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/network_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/network/network_{{ version }}.tar.gz
-  sha256: a24f51457439c7186ffa1fe53719742c501929ac1a354e458754a83f280fce36
+  sha256: eb6435794cacc81abe1664391e8dcf1c10112bbb76fff9016dd6dbb8e83efeb1
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -50,14 +50,13 @@ test:
 about:
   home: http://statnet.org/
   license: GPL (>= 2)
-  summary: Tools to create and modify network objects.  The network class can represent a range
-    of relational data types, and supports arbitrary vertex/edge/graph attributes.
+  summary: Tools to create and modify network objects.  The network class can represent a range of relational data types, and supports arbitrary vertex/edge/graph attributes.
   license_family: GPL3
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
-   recipe-maintainers:
+  recipe-maintainers:
     - conda-forge/r
     - MathiasHaudgaard
     - FrodePedersen
