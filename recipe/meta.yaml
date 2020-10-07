@@ -1,5 +1,4 @@
 {% set version = "1.16.1" %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: network_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/network_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/network/network_{{ version }}.tar.gz
@@ -21,7 +19,6 @@ build:
     - lib/R/lib/
     - lib/
 
-# Suggests: sna, statnet.common, testthat
 requirements:
   build:
     - {{ compiler('c') }}        # [not win]
@@ -31,16 +28,15 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-
   host:
     - r-base
     - r-tibble
     - r-magrittr
   run:
     - r-base
+    - {{ native }}gcc-libs         # [win]
     - r-tibble
     - r-magrittr
-    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
@@ -49,7 +45,7 @@ test:
 
 about:
   home: http://statnet.org/
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: Tools to create and modify network objects.  The network class can represent a range of relational data types, and supports arbitrary vertex/edge/graph attributes.
   license_family: GPL3
   license_file:
