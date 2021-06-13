@@ -1,4 +1,4 @@
-{% set version = "1.16.1" %}
+{% set version = "1.17.0" %} 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/network_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/network/network_{{ version }}.tar.gz
-  sha256: eb6435794cacc81abe1664391e8dcf1c10112bbb76fff9016dd6dbb8e83efeb1
+  sha256: 2f80d9921dca763b0639ef71026a6a45182aa1da5494fd132cae4eb36a0252f4
 
 build:
   merge_build_host: true  # [win]
@@ -21,22 +21,25 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-tibble
     - r-magrittr
+    - r-statnet.common >=4.4.1
+    - r-tibble
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-tibble
     - r-magrittr
+    - r-statnet.common >=4.4.1
+    - r-tibble
 
 test:
   commands:
