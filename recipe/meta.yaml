@@ -1,4 +1,4 @@
-{% set version = "1.18.0" %} 
+{% set version = "1.18.1" %} 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/network_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/network/network_{{ version }}.tar.gz
-  sha256: 59f4b10174c87c8742c6b3c93c5e47833042375f5f872fdd23155b4a5244ce5b
+  sha256: c80d70352967d8480cfa801f2a31bfe130e2ad4dbf2c07b0046e57f3013cd243
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
