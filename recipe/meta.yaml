@@ -1,4 +1,4 @@
-{% set version = "1.18.2" %} 
+{% set version = "1.19.0" %} 
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/network_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/network/network_{{ version }}.tar.gz
-  sha256: bf33892db9cabba9cd1597f09ef0e1277d63520a8cebd2d919e0d41fc706a27b
+  sha256: fd12a007fb16411ef386102f3ebb582ffc5b6798a7eb83858cb8601e1a152012
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
